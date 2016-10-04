@@ -121,7 +121,7 @@ func getWriter(outputFile string) writer {
 	checkErr(err)
 
 	return func(text string) {
-		file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND, 0666)
+		file, err := os.OpenFile(path, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
 		checkErr(err)
 		defer file.Close()
 		writer := bufio.NewWriter(file)
